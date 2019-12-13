@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html class="no-js">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="">
+
+        <style>
+            body {
+                font-family: sans-serif;
+                font-size: 10vw;
+                height: 100vh;
+                display: gird;
+                align-items: center;
+                background-color: white;
+                color: black;
+            }
+
+            svg {
+                border: 3px solid black;
+                height: 300px;
+                width: 300px;
+            }
+        </style>
+    </head>
+    <body>
+
+        <h1>SVG <code>viewbox</code></h1>
+
+        <!--
+            This sets up the 'viewport' which is far different from the 'viewbox'
+            'Viewport' - size of what you see on the screen right now (height + width)
+        -->
+        <h5>Viewport Example</h5>
+        <svg class="viewport-example">
+            <circle r="100" cx="150" cy="150" />
+        </svg>
+        <!--
+            'Viewbox' - controls what shows up in the viewport
+            - viewbox="#1 #2 #3 #4"
+                #1 and #2 are the starting coordinates of our viewbox - (0,0)
+                #3 and #4 are the width and height (zoom in and out)
+        -->
+        <h5>Viewbox Example</h5>
+        <svg class="viewbox-example" viewbox="50 50 300 300">
+            <circle r="100" cx="150" cy="150" />
+        </svg>
+        <!-- preserveAspectRatio="none" stops the svg from scaling, it forces a stretch -->
+        <svg preserveAspectRatio="none" class="viewbox-example" viewbox="0 0 600 300">
+            <circle r="100" cx="150" cy="150" />
+            <line x1="300" y1="-150" x2="300" y2="600" stroke="red" stroke-width=".2rem"/>
+        </svg>
+        <p style="font-size: 15px;">
+            #1 - While the viewport is infinite, the view box has shifted to start at coordinate (50px, 50px).
+            <br>
+            #2 - The red line shows how the height extends (zooms out) by 600px and the width remains at 300px
+        </p>
+        <br>
+
+    </body>
+</html>
