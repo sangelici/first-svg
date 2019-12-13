@@ -9,13 +9,64 @@
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="">
+    <style>
+      body {
+        background-color: white;
+        color: black;
+      }
+
+      circle {
+        /* cannot use background */
+        /* fill: orange; */
+        /* this is the border */
+        /* stroke: pink; */
+        /* stroke-width: .3rem; */
+      }
+
+      svg {
+        background-color: blanchedalmond;
+      }
+
+    </style>
   </head>
   <body>
     <h1>My first SVG</h1>
+    <!-- ORDER OF SHAPES DETERMINE LAYERS, FIRST SHAPE WILL SIT FARTHEST BACK -->
+    <h3>Circles and Rectangles</h3>
+    <svg width="300" height="300">
+      <!--
+        "r" = radius, "cx" is center on the x-axis and "cy" is center on the y-axis
+        The height and width effect the size of the view box
+      -->
+      <circle r="125" cx="150" cy="150" fill="orange" stroke="pink" stroke-width=".3rem" />
+      <circle r="50" cx="80" cy="60" fill="#e2d2fa" stroke="white" stroke-width=".3rem" />
 
-    <svg width="250" height="250">
-      <circle r="125"/>
+       <!-- "x" and "y" determine where on the axis the shape will be-->
+      <rect x="190" y="190" height="100" width="100" fill="#e2d2fa" stroke="white" stroke-width=".3rem"/>
     </svg>
+
+    <br>
+    <br>
+    <h3>Rectangles and Lines</h3>
+    <svg width="300" height="300">
+      <!-- "rx" and "ry" is the radius for each axis ~ 100 makes a circle -->
+      <rect rx="30" ry="100" x="10" y="10" height="175" width="175" fill="#e2d2fa" stroke="white" stroke-width=".3rem"/>
+      <!-- "x1" and "y1" act as the starting points of the line -->
+      <!-- "x2" and "y2" act as the end points of the line -->
+      <line x1="10" y1="150" x2="225" y2="225" stroke="black" stroke-width=".6rem"/>
+    </svg>
+
+    <br>
+    <br>
+    <h3>Polygons</h3>
+    <svg width="250" height="250">
+      <!--
+        Each point is an "x,y" coordinate, you need at least 3 to make a shape
+        You need a path for curved lines
+      -->
+      <polygon fill="lightgreen" stroke="#C6F0FF" stroke-width=".3rem" points="50,50 125,125 200,50 200,200 125,125 50,200"  />
+    </svg>
+
   </body>
 </html>
 
