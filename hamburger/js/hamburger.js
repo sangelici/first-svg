@@ -10,12 +10,18 @@ const lineThree = hamburger.querySelector('.line-three')
 
 //  acts as a container for tweens and other timelines, making it simple to control them as a whole and precisely manage their timing
 const tl = gsap.timeline({})
+const lines = [lineOne, lineTwo, lineThree]
 
 // we don't need to define the starting point, the starting point is what it initially is
-// acts very similarly to keyframes
+// acts very similarly to keyframes (except easier - no percentages)
 hamburger.addEventListener('mouseenter', () => {
     // lineOne will grow
-    tl.to(lineOne, 1, {scale: 1.5});
     // lineOne will shrink back down
-    tl.to(lineOne, 1, {scale: 1})
+    // can also chain methods with one semicolon at the end
+    // tl
+    //     .to(lineOne, .25, {scaleX: 1.5})
+    //     .to(lineOne, .25, {scaleX: 1});
+
+    // staggarTo, when calling on the array of lines in this case, allows you to chain events called on each line with an added delay (0.3)
+    tl.staggerTo(lines, .5, {scaleX: 1.5, repeat: 3, yoyo: true},  0.125)
 })
