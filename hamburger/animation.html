@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>SVG Animation</title>
+
+    <style>
+        body {
+            background-color: #fff;
+        }
+
+        .hamburger {
+            background-color: aquamarine;
+        }
+
+
+
+    </style>
+</head>
+<body>
+    <svg class="hamburger" xmlns="http://www.w3.org/2000/svg" viewbox="0 0 100 100">
+        <line class="line-one" x1="25" y1="42" x2="75" y2="42" fill="none" stroke="#000" stroke-miterlimit="10" stroke-width="4" />
+        <line class="line-two" x1="25" y1="50" x2="75" y2="50" fill="none" stroke="#000" stroke-miterlimit="10" stroke-width="4"/>
+        <line class="line-three" x1="25" y1="58" x2="75" y2="58" fill="none" stroke="#000" stroke-miterlimit="10" stroke-width="4"/>
+    </svg>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.0.1/TweenMax.min.js"></script>
+    <script src="js/hamburger.js"></script>
+</body>
+</html>
