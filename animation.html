@@ -10,9 +10,11 @@
         body {
             background-color: #fff;
         }
+
         .hamburger {
             background-color: aquamarine;
         }
+
         .hamburger:hover .line-one,
         .hamburger:hover .line-two,
         .hamburger:hover .line-three {
@@ -22,6 +24,14 @@
             transform-origin: 50% 50%;
             /* animation: name duration timing-function delay iteration-count direction fill-mode play-state; */
             animation: line-grow ease-out 500ms;
+        }
+
+        .hamburger:hover .line-two {
+            animation-delay: 75ms;
+        }
+
+        .hamburger:hover .line-three {
+            animation-delay: 150ms;
         }
 
         @keyframes line-grow {
