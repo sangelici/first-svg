@@ -10,6 +10,26 @@
         body {
             background-color: #fff;
         }
+        .hamburger {
+            background-color: aquamarine;
+        }
+        .hamburger:hover .line-one,
+        .hamburger:hover .line-two,
+        .hamburger:hover .line-three {
+            /* TEST  */
+            /* transform: scale(1.25);  */
+            /* Spread out from the center */
+            transform-origin: 50% 50%;
+            /* animation: name duration timing-function delay iteration-count direction fill-mode play-state; */
+            animation: line-grow ease-out 500ms;
+        }
+
+        @keyframes line-grow {
+            /* Creates movement where lines will grown by 150% and then shrink */
+            0% { transform: scaleX(1) }
+            50% { transform: scaleX(1.5) }
+            100% { transform: scaleX(1) }
+        }
     </style>
 </head>
 <body>
@@ -17,8 +37,6 @@
         <line class="line-one" x1="25" y1="42" x2="75" y2="42" fill="none" stroke="#000" stroke-miterlimit="10" stroke-width="4" />
         <line class="line-two" x1="25" y1="50" x2="75" y2="50" fill="none" stroke="#000" stroke-miterlimit="10" stroke-width="4"/>
         <line class="line-three" x1="25" y1="58" x2="75" y2="58" fill="none" stroke="#000" stroke-miterlimit="10" stroke-width="4"/>
-
-
     </svg>
 </body>
 </html>
