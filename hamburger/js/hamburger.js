@@ -18,6 +18,7 @@ const toggleMenu = gsap.timeline({paused: true, reversed: true})
 // acts very similarly to keyframes (except easier - no percentages)
 hamburger.addEventListener('mouseenter', () => {
     // hover event listener will only work when the js-x class is not present!
+    // if statement returns, it will never reach the 'tl.staggerTo()' line
     if (hamburger.classList.contains('js-x')) {
         return
     }
@@ -29,16 +30,16 @@ hamburger.addEventListener('mouseenter', () => {
     //     .to(lineOne, .25, {scaleX: 1});
 
     // staggarTo, when calling on the array of lines in this case, allows you to chain events called on each line with an added delay (0.3)
-    tl.staggerTo(lines, .5, {scaleX: 1.5, repeat: 1, yoyo: true},  0.125)
+    tl.staggerTo(lines, .5, {scaleX: 1.5, repeat: 1, yoyo: true, ease: Power2.easeInOut},  0.125)
 })
 
 
 // "cross" label will fire all animations labelled "cross" at the same time
 // adding =+1 will add a delay to the label
 toggleMenu
-    .to(lineTwo, .5, {scaleX: 0})
-    .to(lineOne, .125, {rotation: 45, transformOrigin: "50% 50%", y: 8}, "cross")
-    .to(lineThree, .125, {rotation: -45, transformOrigin: "50% 50%", y: -8}, "cross");
+    .to(lineTwo, .25, {scaleX: 0})
+    .to(lineOne, .25, {rotation: 45, transformOrigin: "50% 50%", y: 8, ease: Power2.easeInOut}, "cross")
+    .to(lineThree, .25, {rotation: -45, transformOrigin: "50% 50%", y: -8, ease: Power2.easeInOut}, "cross");
 
     hamburger.addEventListener('click', () => {
         // 'js' - this class is only here for javascript purposed only, x is for cross 'x' shape
