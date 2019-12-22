@@ -17,6 +17,10 @@ const toggleMenu = gsap.timeline({paused: true, reversed: true})
 // we don't need to define the starting point, the starting point is what it initially is
 // acts very similarly to keyframes (except easier - no percentages)
 hamburger.addEventListener('mouseenter', () => {
+    // hover event listener will only work when the js-x class is not present!
+    if (hamburger.classList.contains('js-x')) {
+        return
+    }
     // lineOne will grow
     // lineOne will shrink back down
     // can also chain methods with one semicolon at the end
@@ -37,5 +41,8 @@ toggleMenu
     .to(lineThree, .125, {rotation: -45, transformOrigin: "50% 50%", y: -8}, "cross");
 
     hamburger.addEventListener('click', () => {
+        // 'js' - this class is only here for javascript purposed only, x is for cross 'x' shape
+        // not JSX
+        hamburger.classList.toggle('js-x');
         toggleMenu.reversed() ? toggleMenu.play() : toggleMenu.reverse()
     })
