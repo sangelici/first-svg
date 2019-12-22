@@ -30,7 +30,7 @@ hamburger.addEventListener('mouseenter', () => {
     //     .to(lineOne, .25, {scaleX: 1});
 
     // staggarTo, when calling on the array of lines in this case, allows you to chain events called on each line with an added delay (0.3)
-    tl.staggerTo(lines, .5, {scaleX: 1.5, repeat: 1, yoyo: true, ease: Power2.easeInOut},  0.125)
+    tl.staggerTo(lines, .5, {scaleX: 1.5, transformOrigin: "50% 50%", repeat: 1, yoyo: true, ease: Power2.easeInOut},  0.125)
 })
 
 
@@ -38,12 +38,20 @@ hamburger.addEventListener('mouseenter', () => {
 // adding =+1 will add a delay to the label
 toggleMenu
     .to(lineTwo, .25, {scaleX: 0})
-    .to(lineOne, .25, {rotation: 45, transformOrigin: "50% 50%", y: 8, ease: Power2.easeInOut}, "cross")
-    .to(lineThree, .25, {rotation: -45, transformOrigin: "50% 50%", y: -8, ease: Power2.easeInOut}, "cross");
+    // line 1 + 3 slide down to the center to form "one line"
+    .to(lineOne, .25, {transformOrigin: "50% 50%", y: 8, ease: Power2.easeInOut}, "slide")
+    .to(lineThree, .25, {transformOrigin: "50% 50%", y: -8, ease: Power2.easeInOut}, "slide")
+    // line 1 + 3 angle to form an 'X'
+    .to(lineOne, .25, {rotation: 45, ease: Power2.easeInOut}, "cross")
+    .to(lineThree, .25, {rotation: -45, ease: Power2.easeInOut}, "cross");;
 
-    hamburger.addEventListener('click', () => {
-        // 'js' - this class is only here for javascript purposed only, x is for cross 'x' shape
-        // not JSX
-        hamburger.classList.toggle('js-x');
-        toggleMenu.reversed() ? toggleMenu.play() : toggleMenu.reverse()
-    })
+    // Center line disappears and lines 1 + 3 cross to form an 'X'
+    // .to(lineOne, .25, {rotation: 45, transformOrigin: "50% 50%", y: 8, ease: Power2.easeInOut}, "cross")
+    // .to(lineThree, .25, {rotation: -45, transformOrigin: "50% 50%", y: -8, ease: Power2.easeInOut}, "cross");
+
+hamburger.addEventListener('click', () => {
+    // 'js' - this class is only here for javascript purposed only, x is for cross 'x' shape
+    // not JSX
+    hamburger.classList.toggle('js-x');
+    toggleMenu.reversed() ? toggleMenu.play() : toggleMenu.reverse()
+})
